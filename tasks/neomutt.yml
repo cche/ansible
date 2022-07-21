@@ -11,8 +11,18 @@
     name: msmtp
     state: present
 
+- name: Install abook
+  ansible.builtin.brew:
+    name: abook
+    state: present
+
 - name: Install neomutt
   ansible.builtin.brew:
     name: neomutt
     state: present
 
+- name: Install lynx
+  become: true
+  ansible.builtin.apt:
+    name: lynx
+    state: present

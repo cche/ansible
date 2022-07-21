@@ -1,3 +1,18 @@
 ---
 
 # neomutt
+- name: Install isync
+  ansible.builtin.brew:
+    name: isync
+    state: present
+
+- name: Install msmtp
+  ansible.builtin.brew:
+    name: msmtp
+    state: present
+
+- name: Install neomutt
+  ansible.builtin.brew:
+    name: neomutt
+    state: present
+

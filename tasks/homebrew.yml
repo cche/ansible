@@ -1,0 +1,36 @@
+---
+# tasks file for homebrew
+
+- name: Install Homebrew and packages
+  stat:
+    path: /usr/local/bin/brew
+  register: b
+  tags:
+    - homebrew
+
+- name: Install Homebrew
+  #script: install-homebrew.sh
+  shell: yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: not b.stat.exists
+  tags:
+    - homebrew
+
+- name: Install gcc
+  community.general.homebrew:
+    name: gcc
+    state: present
+    update_homebrew: yes
+  tags:
+    - homebrew
+
+- name: Install neovim
+  # Update homebrew first and upgrade formula foo to latest available with 'brew' in default path
+  community.general.homebrew:
+    name: neovim
+    state: latest
+    update_homebrew: yes
+    install_options: HEAD
+  tags:
+    - homebrew
+    - neovim
+

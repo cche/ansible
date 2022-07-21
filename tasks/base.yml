@@ -1,0 +1,50 @@
+---
+# tasks file for base
+
+- name: Update apt
+  become: True
+  apt:
+    update_cache: yes
+    state: present
+  tags:
+    - install
+    - core
+
+- name: Update software
+  become: True
+  apt:
+    upgrade: yes
+  tags:
+    - install
+    - core
+
+- name: Install Curl
+  become: True
+  ansible.builtin.apt:
+    name: curl
+    state: latest
+  tags:
+    - install
+    - core
+    - curl
+
+- name: Install Git
+  become: True
+  ansible.builtin.apt:
+    name: git
+    state: latest
+  tags:
+    - install
+    - core
+    - git
+
+- name: Install fzf
+  become: True
+  ansible.builtin.apt:
+    name: fzf
+    state: latest
+  tags:
+    - install
+    - core
+    - fzf
+

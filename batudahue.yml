@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  port: 22
+  gather_facts: True
+  tasks:
+    - include_tasks: tasks/base.yml
+    - include_tasks: tasks/homebrew.yml
+    - include_tasks: tasks/neovim.yml
+    - include_tasks: tasks/neomutt.yml
+    - include_tasks: tasks/dotfiles.yml
+

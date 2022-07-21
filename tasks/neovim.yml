@@ -1,2 +1,18 @@
 ---
 # tasks file for neovim
+
+- name: Install neovim
+  ansible.builtin.homebrew:
+    name: neovim
+    state: latest
+    options: HEAD
+  tags:
+    - neovim
+
+- name: Install config
+  ansible.builtin.git:
+    repo: git@github.com:cristian/nvim.git
+    dest: "{{ lookup('env', 'HOME') }}/src/github/nvim"
+  tags:
+    - neovim
+    - dotfiles

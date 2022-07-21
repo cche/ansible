@@ -48,3 +48,22 @@
     - core
     - fzf
 
+- name: Install glances
+  ansible.builtin.homebrew:
+    name: glances
+    state: latest
+  tags:
+    - install
+    - core
+    - glances
+
+- name: Install htop
+  become: True
+  ansible.builtin.apt:
+    name: htop
+    state: latest
+  tags:
+    - install
+    - core
+    - htop
+

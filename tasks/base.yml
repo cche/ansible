@@ -49,6 +49,15 @@
     - core
     - git
 
+- name: Install R
+  ansible.builtin.homebrew:
+    name: R
+    state: latest
+  tags:
+    - install
+    - core
+    - R
+
 - name: Install fzf
   become: True
   ansible.builtin.apt:

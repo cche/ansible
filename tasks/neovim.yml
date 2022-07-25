@@ -17,6 +17,12 @@
     - neovim
     - dotfiles
 
+- name: Link neovim configuration
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/src/github/nvim"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    state: Link
+
 - name: Install Lua
   ansible.builtin.homebrew:
     name: 

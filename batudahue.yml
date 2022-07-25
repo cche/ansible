@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: localhost
   port: 22
   gather_facts: True
   tasks:

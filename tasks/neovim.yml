@@ -11,8 +11,15 @@
 
 - name: Install config
   ansible.builtin.git:
-    repo: git@github.com:cristian/nvim.git
+    repo: git@github.com:cche/nvim.git
     dest: "{{ lookup('env', 'HOME') }}/src/github/nvim"
   tags:
     - neovim
     - dotfiles
+
+- name: Install Lua
+  ansible.builtin.homebrew:
+    name: 
+      - lua
+      - luarocks
+    state: latest

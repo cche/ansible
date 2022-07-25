@@ -2,22 +2,22 @@
 
 # neomutt
 - name: Install isync
-  ansible.builtin.brew:
+  ansible.builtin.homebrew:
     name: isync
     state: present
 
 - name: Install msmtp
-  ansible.builtin.brew:
+  ansible.builtin.homebrew:
     name: msmtp
     state: present
 
 - name: Install abook
-  ansible.builtin.brew:
+  ansible.builtin.homebrew:
     name: abook
     state: present
 
 - name: Install neomutt
-  ansible.builtin.brew:
+  ansible.builtin.homebrew:
     name: neomutt
     state: present
 
@@ -26,3 +26,13 @@
   ansible.builtin.apt:
     name: lynx
     state: present
+
+- name: Clone neomutt configuration
+  ansible.builtin.git:
+    repo: gogs@ihpe-249.univ-perp.fr:cristian/neomutt.git
+    dest: "{{ lookup('env', 'HOME') }}/src/gogs/neomutt"
+    clone: yes
+    update: yes
+
+- name: Install neomutt configuration
+  ansible.builtin.command: chdir="{{ lookup('env', 'HOME') }}/src/gogs/neomutt" ./install.sh

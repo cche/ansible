@@ -58,6 +58,15 @@
     - core
     - R
 
+# - name: Install Rstudio
+#   ansible.builtin.homebrew:
+#     name: homebrew/cask-versions/rstudio-daily
+#     state: latest
+#   tags:
+#     - install
+#     - core
+#     - R
+#
 - name: Install fzf
   become: True
   ansible.builtin.apt:

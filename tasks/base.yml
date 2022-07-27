@@ -96,3 +96,13 @@
     - core
     - htop
 
+- name: Install Ripgrep
+  become: True
+  ansible.builtin.apt:
+    name: ripgrep
+    state: latest
+  tags:
+    - install
+    - core
+    - Ripgrep
+

@@ -21,7 +21,7 @@
   ansible.builtin.file:
     src: "{{ lookup('env', 'HOME') }}/src/github/nvim"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
-    state: Link
+    state: link
 
 - name: Install Lua
   ansible.builtin.homebrew:

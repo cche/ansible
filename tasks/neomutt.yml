@@ -36,3 +36,16 @@
 
 - name: Install neomutt configuration
   ansible.builtin.command: chdir="{{ lookup('env', 'HOME') }}/src/gogs/neomutt" ./install.sh
+
+- name: Install urlscan
+  ansible.builtin.pip:
+    name: urlscan
+
+- name: Install vdirsyncer & khal
+  become: true
+  ansible.builtin.homebrew:
+    name: 
+      - vdirsyncer
+      - khal
+    state: present
+

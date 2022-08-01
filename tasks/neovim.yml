@@ -2,12 +2,23 @@
 # tasks file for neovim
 
 - name: Install neovim
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: neovim
     state: latest
     options: HEAD
   tags:
     - neovim
+
+- name: Install Lua
+  community.general.homebrew:
+    name: 
+      - lua
+      - luarocks
+    state: latest
+
+- name: Install python package for neovim
+  ansible.builtin.pip:
+    name: pynvim
 
 - name: Install config
   ansible.builtin.git:
@@ -23,9 +34,19 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
 
-- name: Install Lua
-  ansible.builtin.homebrew:
+- name: Install python packages for magma
+  ansible.builtin.pip:
     name: 
-      - lua
-      - luarocks
-    state: latest
+      - jupyter-client
+      - ueberzug
+      - Pillow
+      - cairosvg
+      - pnglatex
+      - plotly
+      - kaleido
+  tags:
+    - neovim
+    - magma
+
+- name: Install node.js provider
+  ansible.builtin.shell: npm install -g neovim

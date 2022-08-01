@@ -2,4 +2,7 @@
 
 - name: Install productivity rules
   ansible.builtin.git:
-    repo: 
+    repo: git@github.com:cche/productivity.git
+    dest: "{{ lookup('env', 'HOME') }}/src/github/productivity"
+  tags:
+    - productivity

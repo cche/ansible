@@ -50,7 +50,7 @@
     - git
 
 - name: Install R
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: R
     state: latest
   tags:
@@ -59,7 +59,7 @@
     - R
 
 # - name: Install Rstudio
-#   ansible.builtin.homebrew:
+#   community.general.homebrew:
 #     name: homebrew/cask-versions/rstudio-daily
 #     state: latest
 #   tags:
@@ -78,13 +78,23 @@
     - fzf
 
 - name: Install glances
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: glances
     state: latest
   tags:
     - install
     - core
     - glances
+
+- name: Install xclip
+  become: True
+  ansible.builtin.apt:
+    name: xclip
+    state: latest
+  tags:
+    - install
+    - core
+    - xclip
 
 - name: Install htop
   become: True
@@ -115,4 +125,78 @@
     - install
     - core
     - fd
+
+- name: Install bat
+  become: True
+  ansible.builtin.apt:
+    name: bat
+    state: latest
+  tags:
+    - install
+    - core
+    - bat
+
+- name: Install glow
+  community.general.homebrew:
+    name: glow
+    state: latest
+  tags:
+    - install
+    - core
+    - glow
+
+- name: Install golang
+  become: True
+  ansible.builtin.apt:
+    name: 
+      - golang
+    state: latest
+  tags:
+    - install
+    - core
+    - golang
+
+- name: Install rust
+  community.general.homebrew:
+    name: 
+      - rust
+    state: latest
+  tags:
+    - install
+    - core
+    - rust
+
+- name: Install ruby
+  become: True
+  ansible.builtin.apt:
+    name: 
+      - ruby
+      - ruby-dev
+    state: latest
+  tags:
+    - install
+    - core
+    - ruby
+
+- name: Install prerequisites for Wally
+  become: True
+  ansible.builtin.apt:
+    name: 
+      - libusb-1.0.0-dev
+    state: latest
+  tags:
+    - install
+    - core
+    - ruby
+
+- name: Install Zathura
+  become: True
+  ansible.builtin.apt:
+    name: 
+      - zathura
+    state: latest
+  tags:
+    - install
+    - core
+    - zathura
 

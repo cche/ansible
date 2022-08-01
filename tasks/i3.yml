@@ -1,0 +1,16 @@
+---
+
+- name: Install i3 window manager
+  ansible.builtin.apt:
+    name: i3
+
+- name: Install config file
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/src/dotfiles/i3/config"
+    dest: "{{ lookup('env', 'HOME') }}/.config/i3/config"
+    state: link
+
+- name: Install Rofi
+  ansible.builtin.apt:
+    name: rofi
+    state: present

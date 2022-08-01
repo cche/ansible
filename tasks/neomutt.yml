@@ -2,22 +2,22 @@
 
 # neomutt
 - name: Install isync
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: isync
     state: present
 
 - name: Install msmtp
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: msmtp
     state: present
 
 - name: Install abook
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: abook
     state: present
 
 - name: Install neomutt
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: neomutt
     state: present
 
@@ -42,8 +42,7 @@
     name: urlscan
 
 - name: Install vdirsyncer & khal
-  become: true
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: 
       - vdirsyncer
       - khal

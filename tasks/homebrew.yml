@@ -23,13 +23,11 @@
   tags:
     - homebrew
 
-- name: Install neovim
+- name: Install gcc@5
   community.general.homebrew:
-    name: neovim
-    state: latest
+    name: gcc@5
+    state: present
     update_homebrew: yes
-    install_options: HEAD
   tags:
     - homebrew
-    - neovim
 

@@ -20,6 +20,13 @@
   ansible.builtin.pip:
     name: pynvim
 
+- name: Install Black formatter
+  ansible.builtin.pip:
+    name: 
+      - black
+      - black[jupyter]
+
+
 - name: Install config
   ansible.builtin.git:
     repo: git@github.com:cche/nvim.git

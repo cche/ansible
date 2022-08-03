@@ -5,6 +5,7 @@
   gather_facts: True
   tasks:
     - include_tasks: tasks/base.yml
+    - include_tasks: tasks/docker.yml
     - include_tasks: tasks/i3.yml
     - include_tasks: tasks/brave.yml
     - include_tasks: tasks/homebrew.yml

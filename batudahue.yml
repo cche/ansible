@@ -13,4 +13,5 @@
     - include_tasks: tasks/neomutt.yml
     - include_tasks: tasks/dotfiles.yml
     - include_tasks: tasks/productivity.yml
+    - include_tasks: tasks/bioinfo.yml
 

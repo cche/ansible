@@ -2,7 +2,7 @@
 # tasks file for base
 
 - name: Update apt
-  become: True
+  become: yes
   apt:
     update_cache: yes
     state: present
@@ -11,7 +11,7 @@
     - core
 
 - name: Update software
-  become: True
+  become: yes
   apt:
     upgrade: yes
   tags:
@@ -19,7 +19,7 @@
     - core
 
 - name: Install gpg
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: gpg
     state: latest
@@ -30,7 +30,7 @@
     - neomutt
 
 - name: Install Curl
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: curl
     state: latest
@@ -40,7 +40,7 @@
     - curl
 
 - name: Install Git
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: git
     state: latest
@@ -50,7 +50,7 @@
     - git
 
 - name: Install Kitty
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: kitty
     state: latest
@@ -78,7 +78,7 @@
 #     - R
 #
 - name: Install fzf
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: fzf
     state: latest
@@ -97,7 +97,7 @@
     - glances
 
 - name: Install xclip
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: xclip
     state: latest
@@ -107,7 +107,7 @@
     - xclip
 
 - name: Install htop
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: htop
     state: latest
@@ -117,7 +117,7 @@
     - htop
 
 - name: Install Ripgrep
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: ripgrep
     state: latest
@@ -127,7 +127,7 @@
     - Ripgrep
 
 - name: Install fd
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: fd-find
     state: latest
@@ -137,7 +137,7 @@
     - fd
 
 - name: Install bat
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: bat
     state: latest
@@ -156,7 +156,7 @@
     - glow
 
 - name: Install golang
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: 
       - golang
@@ -177,7 +177,7 @@
     - rust
 
 - name: Install ruby
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: 
       - ruby
@@ -189,7 +189,7 @@
     - ruby
 
 # - name: Install prerequisites for Wally
-#   become: True
+#   become: yes
 #   ansible.builtin.apt:
 #     name: libusb-1.0.0-dev
 #     state: present
@@ -199,7 +199,7 @@
 #     - ruby
 
 - name: Install Zathura
-  become: True
+  become: yes
   ansible.builtin.apt:
     name: 
       - zathura

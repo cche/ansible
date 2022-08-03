@@ -27,13 +27,13 @@
     name: lynx
     state: present
 
-- name: Clone neomutt configuration
-  ansible.builtin.git:
-    repo: gogs@ihpe-249.univ-perp.fr:cristian/neomutt.git
-    dest: "{{ lookup('env', 'HOME') }}/src/gogs/neomutt"
-    clone: yes
-    update: yes
-
+# - name: Clone neomutt configuration
+#   ansible.builtin.git:
+#     repo: gogs@ihpe-249.univ-perp.fr:cristian/neomutt.git
+#     dest: "{{ lookup('env', 'HOME') }}/src/gogs/neomutt"
+#     clone: yes
+#     update: yes
+#
 - name: Install neomutt configuration
   ansible.builtin.command: chdir="{{ lookup('env', 'HOME') }}/src/gogs/neomutt" ./install.sh
 

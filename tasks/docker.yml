@@ -38,3 +38,15 @@
       - docker-compose-plugin
     update_cache: yes
     state: latest
+  tags:
+    - install
+    - docker
+
+- name: Install Lazydocker
+  community.general.homebrew:
+    name: Lazydocker
+    state: latest
+  tags:
+    - install
+    - docker
+

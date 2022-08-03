@@ -49,6 +49,16 @@
     - core
     - git
 
+- name: Install Kitty
+  become: True
+  ansible.builtin.apt:
+    name: kitty
+    state: latest
+  tags:
+    - install
+    - core
+    - Kitty
+
 - name: Install R
   community.general.homebrew:
     name: R
@@ -178,16 +188,15 @@
     - core
     - ruby
 
-- name: Install prerequisites for Wally
-  become: True
-  ansible.builtin.apt:
-    name: 
-      - libusb-1.0.0-dev
-    state: latest
-  tags:
-    - install
-    - core
-    - ruby
+# - name: Install prerequisites for Wally
+#   become: True
+#   ansible.builtin.apt:
+#     name: libusb-1.0.0-dev
+#     state: present
+#   tags:
+#     - install
+#     - core
+#     - ruby
 
 - name: Install Zathura
   become: True

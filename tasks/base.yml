@@ -39,6 +39,16 @@
     - core
     - curl
 
+- name: Install tmux
+  become: yes
+  ansible.builtin.apt:
+    name: tmux
+    state: latest
+  tags:
+    - install
+    - core
+    - tmux
+
 - name: Install Git
   become: yes
   ansible.builtin.apt:

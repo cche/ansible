@@ -15,16 +15,22 @@
       - lua
       - luarocks
     state: latest
+  tags:
+    - neovim
 
 - name: Install python package for neovim
   ansible.builtin.pip:
     name: pynvim
+  tags:
+    - neovim
 
 - name: Install Black formatter
   ansible.builtin.pip:
     name: 
       - black
       - black[jupyter]
+  tags:
+    - neovim
 
 
 - name: Install config
@@ -40,6 +46,8 @@
     src: "{{ lookup('env', 'HOME') }}/src/github/nvim"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
+  tags:
+    - neovim
 
 - name: Install python packages for magma
   ansible.builtin.pip:
@@ -57,3 +65,5 @@
 
 - name: Install node.js provider
   ansible.builtin.shell: npm install -g neovim
+  tags:
+    - neovim

@@ -4,6 +4,8 @@
   become: yes
   ansible.builtin.apt:
     name: i3
+  tags:
+    - i3
 
 - name: Install config file
   become: yes
@@ -11,9 +13,13 @@
     src: "{{ lookup('env', 'HOME') }}/src/gogs/dotfiles/i3/config"
     dest: "{{ lookup('env', 'HOME') }}/.config/i3/config"
     state: link
+  tags:
+    - i3
 
 - name: Install Rofi
   become: yes
   ansible.builtin.apt:
     name: rofi
     state: present
+  tags:
+    - i3

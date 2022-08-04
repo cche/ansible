@@ -5,13 +5,33 @@
   gather_facts: True
   tasks:
     - include_tasks: tasks/base.yml
+      tags:
+        - core
     - include_tasks: tasks/docker.yml
+      tags:
+        - docker
     - include_tasks: tasks/i3.yml
+      tags:
+        - i3
     - include_tasks: tasks/brave.yml
+      tags:
+        - brave
     - include_tasks: tasks/homebrew.yml
+      tags:
+        - homebrew
     - include_tasks: tasks/neovim.yml
+      tags:
+        - neovim
     - include_tasks: tasks/neomutt.yml
+      tags:
+        - neomutt
     - include_tasks: tasks/dotfiles.yml
+      tags:
+        - dotfiles
     - include_tasks: tasks/productivity.yml
+      tags:
+        - productivity
     - include_tasks: tasks/bioinfo.yml
+      tags:
+        - bioinfo
 

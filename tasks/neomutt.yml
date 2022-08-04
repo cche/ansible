@@ -5,27 +5,37 @@
   community.general.homebrew:
     name: isync
     state: present
+  tags:
+    - neomutt
 
 - name: Install msmtp
   community.general.homebrew:
     name: msmtp
     state: present
+  tags:
+    - neomutt
 
 - name: Install abook
   community.general.homebrew:
     name: abook
     state: present
+  tags:
+    - neomutt
 
 - name: Install neomutt
   community.general.homebrew:
     name: neomutt
     state: present
+  tags:
+    - neomutt
 
 - name: Install lynx
   become: true
   ansible.builtin.apt:
     name: lynx
     state: present
+  tags:
+    - neomutt
 
 # - name: Clone neomutt configuration
 #   ansible.builtin.git:
@@ -36,10 +46,14 @@
 #
 - name: Install neomutt configuration
   ansible.builtin.command: chdir="{{ lookup('env', 'HOME') }}/src/gogs/neomutt" ./install.sh
+  tags:
+    - neomutt
 
 - name: Install urlscan
   ansible.builtin.pip:
     name: urlscan
+  tags:
+    - neomutt
 
 - name: Install vdirsyncer & khal
   community.general.homebrew:
@@ -47,4 +61,6 @@
       - vdirsyncer
       - khal
     state: present
+  tags:
+    - neomutt
 

@@ -5,7 +5,6 @@
   become: yes
   apt:
     update_cache: yes
-    state: present
   tags:
     - install
     - core
@@ -13,7 +12,7 @@
 - name: Update software
   become: yes
   apt:
-    upgrade: yes
+    upgrade: dist
   tags:
     - install
     - core
@@ -61,9 +60,7 @@
 
 - name: Install Kitty
   become: yes
-  ansible.builtin.apt:
-    name: kitty
-    state: latest
+  ansible.builtin.shell: "Curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
   tags:
     - install
     - core

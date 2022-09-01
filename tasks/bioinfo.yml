@@ -1,7 +1,10 @@
 ---
 
 # Install:
-# Snakemake
+- name: Install Snakemake
+  community.general.homebrew:
+    name: snakemake
+    state: latest
 # SnakePipes
 # ncbi-blast+
 # Bedtools

@@ -9,11 +9,15 @@
   tags:
     - neovim
 
+- name: Set neovim as default editor
+  ansible.builtin.shell: echo "export EDITOR=nvim" >> ~/.bashrc
+
 - name: Install Lua
   community.general.homebrew:
     name: 
       - lua
       - luarocks
+      - luajit
     state: latest
   tags:
     - neovim
@@ -62,6 +66,14 @@
   tags:
     - neovim
     - magma
+
+- name: Install pytest
+  ansible.builtin.pip:
+    name: 
+      - pytest
+  tags:
+    - neovim
+    - pytest
 
 - name: Install node.js provider
   ansible.builtin.shell: npm install -g neovim

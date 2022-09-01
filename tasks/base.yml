@@ -219,3 +219,14 @@
     - core
     - zathura
 
+- name: Install typescript
+  become: yes
+  ansible.builtin.apt:
+    name: 
+      - node-typescript
+    state: latest
+  tags:
+    - install
+    - core
+    - typescript
+

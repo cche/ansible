@@ -60,7 +60,7 @@
 
 - name: Install Kitty
   become: yes
-  ansible.builtin.shell: "Curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+  ansible.builtin.shell: Curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   tags:
     - install
     - core
